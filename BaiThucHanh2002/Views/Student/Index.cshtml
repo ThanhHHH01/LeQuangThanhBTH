@@ -1,18 +1,10 @@
-<h1>XIn chào các bạn</h1>
-<b>
-<p style="font-size:160%;"></p>
-<p style="color:rgb(0, 255, 72);">Bạn ghét điều gì.</p></b>
-<tr>
-                            <td width = 500>
-                                <input type = checkbox name = 'chkHpbbies' value = 'Ăn'>Học
-                             </td>
-                             <td width = 500>
-                                <input type = checkbox name = 'chkHpbbies' value = 'Nghe nhạc'>Làm
-                             </td>
-                             <td width = 500>
-                                <input type = checkbox name = 'chkHpbbies' value = 'Chơi'>Chơi
-                             </td>
-                             <td width = 500>
-                                <input type = checkbox name = 'chkHpbbies' value = 'Đi du lịch'>Nấu ăn
-                             </td>
-                        </tr>
+<h2>@ViewBag.thongbao</h2>
+
+<form class="w3-container w3-card-4 w3-light-grey" asp-action="Index">
+  <label>Full name: </label> 
+  <input class="w3-input w3-border w3-round-large" type="text" name="FullName">
+  <br>
+  <label>Phone Number: </label> 
+  <input class="w3-input w3-border w3-round-large" type="text" name="PhoneNumber">
+  <input type="submit" value="Send">
+</form> 

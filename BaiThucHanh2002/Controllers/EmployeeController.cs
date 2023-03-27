@@ -1,31 +1,35 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using BaiThucHanh2002.Models;
+using BaiThucHanh2002.Models.Process;
 
-namespace BaiThucHanh2002.Controllers;
-
-public class EmployeeController : Controller
+namespace BaiThucHanh2002.Controllers
 {
-    private readonly ILogger<HomeController> _logger;
-
-    public EmployeeController(ILogger<HomeController> logger)
+    public class EmployeeController : Controller
     {
-        _logger = logger;
+        public IActionResult Index()
+        {
+            return View();
+        }
+        [HttpPost]
+         public IActionResult Index(string FullName)
+        {
+            string strReturn = "Hello " + FullName;
+            //gui du lieu ve view
+            ViewBag.thongbao = strReturn;
+            return View();
+            //tra ve danh sach cac sinh vien trong Database
+        }
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Create(Employee emp)
+        {
+            string kq = emp.EmployeeCode + "-" + emp.EmployeeName + "- " + emp.Address;
+            ViewBag.mess = kq;
+            return View(); 
+        }
     }
 
-    public IActionResult Index()
-    {
-        return View();
-    }
-
-    public IActionResult Privacy()
-    {
-        return View();
-    }
-
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-    }
 }
